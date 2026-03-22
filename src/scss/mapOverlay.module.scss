@@ -1,0 +1,9 @@
+@use './variables' as *;
+
+.shadowCard {
+  @include shadowL1;
+}
+
+.iconButton {
+  @include shadowL1;
+}

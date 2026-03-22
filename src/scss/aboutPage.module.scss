@@ -1,0 +1,108 @@
+@use './variables' as *;
+
+.bodyText {
+  @include text-paragraph-regular($color-text-paragraph);
+  text-align: left;
+  line-height: 1.5rem;
+}
+
+.bodyTextWhite {
+  @include text-paragraph-regular($color-text-white);
+  text-align: left;
+  line-height: 1.5rem;
+}
+
+.cardTitle {
+  @include text-l-title-bold($color-text-title);
+  margin: 0;
+}
+
+.cardTitleWhite {
+  @include text-l-title-bold($color-text-white);
+  margin: 0;
+  text-align: left;
+}
+
+.pillText {
+  @include text-paragraph-bold(inherit);
+}
+
+.sectionTitle {
+  @include text-h2($color-text-title);
+  margin: 0 0 2rem;
+}
+
+.memberName {
+  @include text-s-title-bold($color-text-title);
+  margin: 0;
+}
+
+.roleText {
+  @include text-caption($color-text-caption);
+}
+
+.subTitle {
+  @include text-s-title-bold(#066fd1);
+  margin: 0 0 0.75rem;
+}
+
+.resourceLink {
+  background-color: $color-white;
+  border: 1.5px solid #cbd5e1;
+  @include text-paragraph-bold($color-text-paragraph);
+  text-align: center;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    background-color: $color-family-light-transparent;
+    border-color: $color-family-primary;
+  }
+}
+
+.inlineLink {
+  @include text-paragraph-bold(#066fd1);
+  text-decoration: none;
+}
+
+.footerTitle {
+  @include text-s-title-bold($color-text-title);
+  margin: 0 0 1rem;
+}
+
+.footerText {
+  @include text-paragraph-regular(#4b5563);
+  line-height: 1.5rem;
+  margin: 0;
+}
+
+.inheritBoldLink {
+  @include text-paragraph-bold(inherit);
+}
+
+.heroSection {
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.abstractionGrid {
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.cardHeader {
+  margin: 0;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.cardHeaderLight {
+  margin: 0;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,5 @@
+@use './variables' as *;
+
+.tooltipContent {
+  @include text-caption($color-text-white);
+}

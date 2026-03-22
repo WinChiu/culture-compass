@@ -1,0 +1,63 @@
+@use 'variables' as *;
+
+:export {
+  // Primary
+  colorFamilyPrimary: $color-family-primary;
+  colorWorkPrimary: $color-work-primary;
+  colorPoliticsPrimary: $color-politics-primary;
+  colorFriendsPrimary: $color-friends-primary;
+  colorLeisurePrimary: $color-leisure-primary;
+  colorReligionPrimary: $color-religion-primary;
+
+  // Analogous
+  colorFamilyAnalogous: $color-family-analogous;
+  colorWorkAnalogous: $color-work-analogous;
+  colorPoliticsAnalogous: $color-politics-analogous;
+  colorFriendsAnalogous: $color-friends-analogous;
+  colorLeisureAnalogous: $color-leisure-analogous;
+  colorReligionAnalogous: $color-religion-analogous;
+
+  // Dark
+  colorFamilyDark: $color-family-dark;
+  colorWorkDark: $color-work-dark;
+  colorPoliticsDark: $color-politics-dark;
+  colorFriendsDark: $color-friends-dark;
+  colorLeisureDark: $color-leisure-dark;
+  colorReligionDark: $color-religion-dark;
+
+  // Light
+  colorFamilyLight: $color-family-light;
+  colorWorkLight: $color-work-light;
+  colorPoliticsLight: $color-politics-light;
+  colorFriendsLight: $color-friends-light;
+  colorLeisureLight: $color-leisure-light;
+  colorReligionLight: $color-religion-light;
+
+  // Transparent
+  colorFamilyLightTransparent: $color-family-light-transparent;
+  colorWorkLightTransparent: $color-work-light-transparent;
+  colorPoliticsLightTransparent: $color-politics-light-transparent;
+  colorFriendsLightTransparent: $color-friends-light-transparent;
+  colorLeisureLightTransparent: $color-leisure-light-transparent;
+  colorReligionLightTransparent: $color-religion-light-transparent;
+
+  // Background
+  colorFamilyBackground: $color-family-background;
+  colorWorkBackground: $color-work-background;
+  colorPoliticsBackground: $color-politics-background;
+  colorFriendsBackground: $color-friends-background;
+  colorLeisureBackground: $color-leisure-background;
+  colorReligionBackground: $color-religion-background;
+
+  // Text
+  colorTextTitle: $color-text-title;
+  colorTextParagraph: $color-text-paragraph;
+  colorTextCaption: $color-text-caption;
+  colorTextWhite: $color-text-white;
+
+  // Neutral
+  colorBlackPrimary: $color-black-primary;
+  colorBlackSecondary: $color-black-secondary;
+  colorGray: $color-gray;
+  colorWhite: $color-white;
+}

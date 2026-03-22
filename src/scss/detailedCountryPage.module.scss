@@ -1,0 +1,235 @@
+@use "./variables" as *;
+
+.detail-page-container {
+  @include flex(column, center, center, 0rem);
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-culture-background);
+  .country-banner {
+    background-color: var(--color-culture-dark);
+    padding: 1rem 1.5rem;
+    flex-shrink: 0;
+    width: 100vw;
+    @include flex(row, flex-start, center, 0.5rem);
+    &__back {
+      cursor: pointer;
+    }
+    &__title {
+      @include text-h2;
+      text-align: start;
+      color: $color-text-white;
+    }
+  }
+  .content-container {
+    @include flex(row, flex-start, flex-start, 1.5rem);
+    width: 100vw;
+    height: 100%;
+    flex: 1;
+    background-color: var(--color-culture-background);
+    // padding: 2.5rem 1.5rem;
+    min-height: 0;
+    overflow: hidden;
+    .left-column {
+      @include flex(column, flex-start, flex-start, 1.5rem);
+      width: 100%;
+      flex: 8;
+      height: 100%;
+      min-height: 0;
+      padding: 2.5rem 0rem 2.5rem 1.5rem;
+      .barChart-header {
+        @include flex(row, flex-start, flex-end, 0);
+        width: 100%;
+        .barChart-icon {
+          margin-right: 1rem;
+        }
+        .barChart-title__container {
+          @include flex(column, center, flex-start, 0.5rem);
+          width: 100%;
+          .barChart-title {
+            @include text-h1($color-text-title);
+            text-align: left;
+            &__highlight {
+              color: var(--color-culture-primary);
+            }
+          }
+          .barChart-subtitle {
+            text-align: left;
+
+            @include text-paragraph-regular($color-text-caption);
+          }
+        }
+        .barChart-legend__container {
+          @include flex(column, center, flex-start, 0.5rem);
+
+          .barChart-legend-block {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            border-radius: 2px;
+            &-1 {
+              background-color: var(--color-culture-primary);
+            }
+            &-2 {
+              background-color: var(--color-culture-analogous);
+            }
+          }
+
+          .barChart-legend__item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            .barChart-legend-label {
+              @include text-paragraph-regular($color-text-paragraph);
+              text-wrap: nowrap;
+            }
+          }
+        }
+      }
+      .plot__container {
+        width: 100%;
+        height: 100%;
+      }
+      .cultureCard__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        width: 100%;
+        .cultureCard {
+          @include flex(row, space-between, center, 0.5rem);
+          @include shadowL1;
+          border-radius: 8px;
+          padding: 1.5rem 1rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          &.active {
+            background-color: var(--color-culture-dark);
+            border: 1px solid var(--color-culture-dark);
+            color: $color-text-white;
+          }
+          &:not(.active) {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            color: $color-text-title;
+          }
+          .cultureCard-title__container {
+            @include flex(column, flex-start, flex-start, 0.25rem);
+            .cultureCard-title-label {
+              @include text-caption(inherit);
+            }
+            .cultureCard-title-valueName {
+              @include text-l-title-bold(inherit);
+            }
+          }
+          .cultureCard-number {
+            @include text-h2(inherit);
+          }
+        }
+      }
+    }
+    .right-column {
+      @include flex(column, flex-start, flex-start, 1.5rem);
+      flex: 5;
+      height: 100%;
+      min-height: 0;
+      .compareWave-card {
+        @include flex(column, flex-start, flex-start, 1.5rem);
+        @include shadowL1;
+        background-color: $color-white;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        width: 100%;
+        .compareWave-card-title-container {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          .compareWave-card-title {
+            @include text-h2($color-text-title);
+          }
+        }
+        .compareWave-buttonGroup {
+          @include flex(row, flex-start, center, 0.5rem);
+          width: 100%;
+          .wave-btn {
+            @include text-paragraph-regular($color-black-secondary);
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: $color-white;
+            border: 1px solid $color-gray;
+            text-wrap: nowrap;
+            width: 100%;
+            &--wave-a {
+              background-color: var(--color-culture-primary);
+              color: $color-text-white;
+              border-color: var(--color-culture-dark);
+            }
+            &--wave-b {
+              background-color: var(--color-culture-analogous);
+              color: $color-text-white;
+              border-color: var(--color-culture-analogous);
+            }
+          }
+        }
+      }
+      .filterCard {
+        @include flex(column, flex-start, flex-start, 0.5rem);
+        @include shadowL1;
+        background-color: $color-white;
+        border-radius: 0.75rem;
+        padding: 1.5rem 0.5rem 1.5rem 1.5rem;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        .filterCard__title {
+          @include text-h2($color-text-title);
+        }
+        .filterCard-accordion__container {
+          @include flex(column, flex-start, flex-start, 1.5rem);
+          width: 100%;
+          .filterCard-accordion {
+            width: 100%;
+            box-shadow: none;
+            &__title {
+              @include text-s-title-bold;
+              padding: 0 0 0.5rem 0;
+              padding-top: 1rem;
+            }
+            &__result {
+              @include text-s-title-regular($color-text-caption);
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Plot Style
+.xAxis-label {
+  @include text-paragraph-regular($color-text-paragraph);
+  margin-top: 4px;
+}
+.yAxis-label {
+  @include text-paragraph-regular($color-text-caption);
+}
+.selectedAge-label {
+  @include text-paragraph-bold($color-text-paragraph);
+}
+.barLabel {
+  @include text-paragraph-bold;
+}
+:global(.MuiAccordionDetails-root) {
+  padding: 1rem 0 !important;
+}
+
+:global(.MuiAccordion-root:before) {
+  display: none !important;
+}
+
+:global(.MuiAccordion-root) {
+  border-bottom: 1px solid #f0f0f0;
+}

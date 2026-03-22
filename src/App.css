@@ -1,0 +1,13 @@
+#root {
+  margin: 0px;
+  text-align: center;
+}
+
+html, body{
+width: 100%;
+margin: 0px;
+}
+
+body {
+  background-color: #f5f9fd;
+}

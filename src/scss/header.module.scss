@@ -1,0 +1,27 @@
+@use './variables' as *;
+.header {
+  @include flex(row, space-between, center);
+  padding: 0rem 2rem;
+  background-color: var(--color-culture-dark);
+  border-bottom: 1px solid #e0e0e0;
+  width: 100vw;
+  @include shadowL1;
+  &__logo {
+    @include text-h2($color-text-white);
+    padding: 1rem 0rem;
+  }
+  &__navContainer {
+    @include flex(row, flex-start, stretch, 1.5rem);
+    align-self: stretch;
+  }
+  &__navItem {
+    @include text-s-title-regular($color-text-white);
+    @include flex(row, center, center, 0);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding: 0rem 1rem;
+    &--active {
+      border-bottom: 2px solid $color-white;
+    }
+  }
+}

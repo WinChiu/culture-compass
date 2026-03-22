@@ -1,0 +1,215 @@
+@use './variables' as *;
+
+.sidebar {
+  @include shadowL1;
+  @include flex(column, flex-start, flex-start, 2.5rem);
+  position: relative;
+  flex: 5;
+  background-color: $color-white;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 2rem;
+  height: 100%;
+  .sidebarSection {
+    @include flex(column, flex-start, flex-start, 1.5rem);
+    width: 100%;
+    &__titleGroup {
+      position: relative;
+      width: 100%;
+      @include flex(column, flex-start, flex-start, 0.25rem);
+    }
+    &__title {
+      @include text-h2;
+    }
+    &__subTitle {
+      @include text-paragraph-regular($color-text-caption);
+      text-align: left;
+    }
+    &__resetFilter {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &__resetSingleFilter {
+      cursor: pointer;
+      position: absolute;
+      top: 5;
+      right: 0;
+      margin-right: 30px;
+      height: 20px;
+    }
+    &__buttonGroup {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      width: 100%;
+    }
+    &__waveLabelParent {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+    &__waveLabelChild {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+    }
+    &__waveLabelChildA {
+      height: 10px;
+      width: 10px;
+      background-color: var(--color-culture-primary);
+    }
+    &__waveLabelChildB {
+      height: 10px;
+      width: 10px;
+      background-color: var(--color-culture-analogous);
+    }
+    &__button {
+      @include flex(row, flex-start, center, 0.5rem);
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid $color-gray;
+      background-color: $color-white;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover:not(&--active):not(&--secondary):not(&--secondary_TREND):not(&--disabled) {
+        background-color: var(--color-culture-light-transparent);
+        border-color: var(--color-culture-primary);
+      }
+
+      &--active {
+        border: 1px solid var(--color-culture-primary);
+        background-color: var(--color-culture-primary);
+        color: $color-text-white;
+      }
+      &--secondary {
+        border: 1px solid var(--color-culture-analogous);
+        background-color: var(--color-culture-analogous);
+        color: $color-text-white;
+      }
+      &--secondary_TREND {
+        border: 1px solid var(--color-culture-dark);
+        background-color: var(--color-culture-dark);
+        color: $color-text-white;
+      }
+      &--disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+    &__buttonIcon {
+      width: 2rem;
+      height: 2rem;
+      filter: none;
+      &--active {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    &__filterGroup {
+      @include flex(column, flex-start, flex-start, 0rem);
+      width: 100%;
+    }
+    .filterAccordion {
+      width: 100%;
+      border-bottom: 1px solid #f0f0f0;
+      &--expanded {
+        .filterAccordion__icon {
+          transform: rotate(180deg);
+        }
+      }
+      &__header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+      &__trigger {
+        @include text-s-title-bold;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        text-align: left;
+      }
+      &__titleContent {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        min-width: 0;
+      }
+
+      &__result {
+        @include text-s-title-regular($color-text-caption);
+        min-width: fit-content;
+      }
+      &__controlGroup {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        flex-shrink: 0;
+      }
+      &__actions {
+        display: flex;
+        align-items: center;
+        .sidebarSection__resetSingleFilter {
+          position: static;
+          top: auto;
+          right: auto;
+          margin-right: 0;
+        }
+      }
+      &__content {
+        overflow: hidden;
+        min-height: 0;
+      }
+      &__contentWrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition:
+          grid-template-rows 0.24s ease,
+          opacity 0.24s ease;
+        opacity: 0;
+      }
+      &__contentWrapper--expanded {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        .filterAccordion__content {
+          padding: 0 0 1rem;
+        }
+      }
+      &__iconButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin-left: 0.125rem;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+      &__icon {
+        flex-shrink: 0;
+        width: 1rem;
+        height: 1rem;
+        transition: transform 0.2s ease;
+      }
+      &__icon--expanded {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@use './variables' as *;
+
+.overlayTitle {
+  @include text-h1(#1d1b31);
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.overlaySubtitle {
+  @include text-paragraph-regular(#7a7a85);
+  margin: 0;
+  text-align: left;
+}
+
+.panelLabel {
+  @include text-s-title-regular(#7f8c8d);
+}
+
+.panelValue {
+  @include text-s-title-bold(#2c3e50);
+}
+
+.legendTitle {
+  @include text-caption(#1d1b31);
+}
+
+.legendTick {
+  @include text-tiny-bold(#515151);
+}

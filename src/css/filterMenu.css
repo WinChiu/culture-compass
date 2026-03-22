@@ -1,0 +1,82 @@
+.filterParent {
+  height: 100%;
+  gap: 5vh;
+}
+
+.selectWaves {
+  height: 30%;
+  width: 100%;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterTitle {
+  text-align: start;
+}
+
+.detailsParent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 1rem;
+  width: 100%;
+}
+.chartParent {
+  flex: 1;
+  min-width: 0;
+}
+.checkboxGrandParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.educationGap {
+  transform: translateY(2.25rem);
+  gap: 2.95rem;
+}
+.educationGap-oneBar {
+  transform: translateY(1.5rem);
+}
+.employmentGap {
+  transform: translateY(2.5rem);
+  gap: 2.95rem;
+}
+.employmentGap-oneBar {
+  transform: translateY(1.5rem);
+}
+.genderGap {
+  transform: translateY(3rem);
+  gap: 4.25rem;
+}
+.genderGap-oneBar {
+  transform: translateY(2rem);
+  gap: 4rem;
+}
+.maritalGap {
+  transform: translateY(3.5rem);
+  gap: 4.375rem;
+}
+.maritalGap-oneBar {
+  transform: translateY(2.25rem);
+}
+.checkboxParent {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  max-height: 22px;
+  text-align: left;
+  font-family: 'Source Sans 3';
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #21212b;
+}
+
+.checkboxParent > p {
+  font-size: 16px;
+}

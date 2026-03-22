@@ -1,0 +1,79 @@
+{
+  "hash": "c4d51349",
+  "configHash": "1845a855",
+  "lockfileHash": "c9835205",
+  "browserHash": "f9e5ad8a",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "3306258f",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "dc153309",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "7a7f3f13",
+      "needsInterop": false
+    },
+    "d3": {
+      "src": "../../node_modules/d3/src/index.js",
+      "file": "d3.js",
+      "fileHash": "22b2e492",
+      "needsInterop": false
+    },
+    "@mui/material/Accordion": {
+      "src": "../../node_modules/@mui/material/esm/Accordion/index.js",
+      "file": "@mui_material_Accordion.js",
+      "fileHash": "8d61dea0",
+      "needsInterop": false
+    },
+    "@mui/material/AccordionDetails": {
+      "src": "../../node_modules/@mui/material/esm/AccordionDetails/index.js",
+      "file": "@mui_material_AccordionDetails.js",
+      "fileHash": "57c25b8b",
+      "needsInterop": false
+    },
+    "@mui/material/AccordionSummary": {
+      "src": "../../node_modules/@mui/material/esm/AccordionSummary/index.js",
+      "file": "@mui_material_AccordionSummary.js",
+      "fileHash": "2f9b5aab",
+      "needsInterop": false
+    },
+    "@mui/icons-material/ExpandMore": {
+      "src": "../../node_modules/@mui/icons-material/esm/ExpandMore.js",
+      "file": "@mui_icons-material_ExpandMore.js",
+      "fileHash": "1b5088a3",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-MNWFCIJD": {
+      "file": "chunk-MNWFCIJD.js"
+    },
+    "chunk-X5EBYUPF": {
+      "file": "chunk-X5EBYUPF.js"
+    },
+    "chunk-KWUEHASF": {
+      "file": "chunk-KWUEHASF.js"
+    },
+    "chunk-XKR7BREP": {
+      "file": "chunk-XKR7BREP.js"
+    },
+    "chunk-G5KB5TYO": {
+      "file": "chunk-G5KB5TYO.js"
+    },
+    "chunk-NO6UH6X3": {
+      "file": "chunk-NO6UH6X3.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
+    }
+  }
+}

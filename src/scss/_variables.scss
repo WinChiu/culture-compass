@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+// Human Value Color Variables
+$color-family-primary: #066fd1;
+$color-work-primary: #ae3ec9;
+$color-politics-primary: #d84646;
+$color-friends-primary: #f59f00;
+$color-leisure-primary: #2fb344;
+$color-religion-primary: #17a2b8;
+
+$color-family-analogous: #06d1ce;
+$color-work-analogous: #eb0754;
+$color-politics-analogous: #3d0009;
+$color-friends-analogous: #015545;
+$color-leisure-analogous: #ac8989;
+$color-religion-analogous: #ffad77;
+
+$color-family-dark: #05347c;
+$color-work-dark: #54098b;
+$color-politics-dark: #9b1f1d;
+$color-friends-dark: #b85400;
+$color-leisure-dark: #016d21;
+$color-religion-dark: #096b77;
+
+$color-family-light: #e6f0fa;
+$color-work-light: #f6ebf9;
+$color-politics-light: #faebeb;
+$color-friends-light: #fdeee5;
+$color-leisure-light: #eaf7ec;
+$color-religion-light: #e7f5f7;
+
+$color-family-light-transparent: rgba(#e6f0fa, 30%);
+$color-work-light-transparent: rgba(#f6ebf9, 30%);
+$color-politics-light-transparent: rgba(#faebeb, 30%);
+$color-friends-light-transparent: rgba(#fdeee5, 30%);
+$color-leisure-light-transparent: rgba(#eaf7ec, 30%);
+$color-religion-light-transparent: rgba(#e7f5f7, 30%);
+
+$color-family-background: #f5f9fd;
+$color-work-background: #fbf6fc;
+$color-politics-background: #fdf7f7;
+$color-friends-background: #fef6f1;
+$color-leisure-background: #f4fbf5;
+$color-religion-background: #f4fafb;
+
+$color-text-title: #211f3a;
+$color-text-paragraph: #21212b;
+$color-text-caption: #818181;
+$color-text-white: #ffffff;
+
+$color-black-primary: #181818;
+$color-black-secondary: #515151;
+$color-gray: #c0c0c0;
+$color-white: #ffffff;
+
+$font-family: 'Source Sans 3';
+
+// Font Style
+
+@mixin text-h1($fontColor: $color-text-title) {
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.5rem; /* 100% */
+  color: $fontColor;
+}
+@mixin text-h2($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.5rem; /* 125% */
+  color: $fontColor;
+}
+@mixin text-l-title-bold($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 100% */
+  color: $fontColor;
+}
+@mixin text-l-title-regular($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 100% */
+  color: $fontColor;
+}
+@mixin text-s-title-bold($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5rem; /* 120% */
+  color: $fontColor;
+}
+@mixin text-s-title-regular($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 120% */
+  color: $fontColor;
+}
+@mixin text-paragraph-bold($fontColor: $color-text-paragraph) {
+  font-family: $font-family;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem; /* 100% */
+  color: $fontColor;
+}
+@mixin text-paragraph-regular($fontColor: $color-text-paragraph) {
+  font-family: $font-family;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 100% */
+  color: $fontColor;
+}
+@mixin text-caption($fontColor: $color-text-caption) {
+  font-family: $font-family;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 133.333% */
+  color: $fontColor;
+}
+@mixin text-tiny-bold($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 0.5625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.75rem; /* 133.333% */
+  color: $fontColor;
+}
+@mixin text-tiny-regular($fontColor: $color-text-title) {
+  font-family: $font-family;
+  font-size: 0.5625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0.75rem; /* 133.333% */
+  color: $fontColor;
+}
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+@mixin shadowL1 {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+// CSS Custom Properties for dynamic theming
+// Default theme: family
+:root {
+  --color-culture-primary: #{$color-family-primary};
+  --color-culture-analogous: #{$color-family-analogous};
+  --color-culture-dark: #{$color-family-dark};
+  --color-culture-light: #{$color-family-light};
+  --color-culture-light-transparent: #{$color-family-light-transparent};
+  --color-culture-background: #{$color-family-background};
+}
+
+[data-theme='impWork'] {
+  --color-culture-primary: #{$color-work-primary};
+  --color-culture-analogous: #{$color-work-analogous};
+  --color-culture-dark: #{$color-work-dark};
+  --color-culture-light: #{$color-work-light};
+  --color-culture-light-transparent: #{$color-work-light-transparent};
+  --color-culture-background: #{$color-work-background};
+}
+
+[data-theme='impPolitics'] {
+  --color-culture-primary: #{$color-politics-primary};
+  --color-culture-analogous: #{$color-politics-analogous};
+  --color-culture-dark: #{$color-politics-dark};
+  --color-culture-light: #{$color-politics-light};
+  --color-culture-light-transparent: #{$color-politics-light-transparent};
+  --color-culture-background: #{$color-politics-background};
+}
+
+[data-theme='impFriends'] {
+  --color-culture-primary: #{$color-friends-primary};
+  --color-culture-analogous: #{$color-friends-analogous};
+  --color-culture-dark: #{$color-friends-dark};
+  --color-culture-light: #{$color-friends-light};
+  --color-culture-light-transparent: #{$color-friends-light-transparent};
+  --color-culture-background: #{$color-friends-background};
+}
+
+[data-theme='impLeisure'] {
+  --color-culture-primary: #{$color-leisure-primary};
+  --color-culture-analogous: #{$color-leisure-analogous};
+  --color-culture-dark: #{$color-leisure-dark};
+  --color-culture-light: #{$color-leisure-light};
+  --color-culture-light-transparent: #{$color-leisure-light-transparent};
+  --color-culture-background: #{$color-leisure-background};
+}
+
+[data-theme='impReligion'] {
+  --color-culture-primary: #{$color-religion-primary};
+  --color-culture-analogous: #{$color-religion-analogous};
+  --color-culture-dark: #{$color-religion-dark};
+  --color-culture-light: #{$color-religion-light};
+  --color-culture-light-transparent: #{$color-religion-light-transparent};
+  --color-culture-background: #{$color-religion-background};
+}
