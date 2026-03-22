@@ -17,31 +17,33 @@ import LeafletIcon from '../assets/icon-leaflet.svg';
 import GeoIcon from '../assets/icon-geo.svg';
 import textStyle from '../scss/aboutPage.module.scss';
 
+const assetBase = import.meta.env.BASE_URL;
+
 const team = [
   {
     name: 'Anton Fahlstedt',
     role: 'UI/UX Design & Front-end',
-    photo: '/team/anton.jpg',
+    photo: `${assetBase}team/anton.jpg`,
   },
   {
     name: 'Elias Bäckström',
     role: 'Data Processing & Front-end',
-    photo: '/team/elias.jpg',
+    photo: `${assetBase}team/elias.jpg`,
   },
   {
     name: 'Jintong Jiang',
     role: 'Data Collection & Front-end',
-    photo: '/team/jintong.jpg',
+    photo: `${assetBase}team/jintong.jpg`,
   },
   {
     name: 'Paul Talakayala',
     role: 'UI/UX Design & Front-end',
-    photo: '/team/paul.jpg',
+    photo: `${assetBase}team/paul.jpg`,
   },
   {
     name: 'Wei-Chen Chiu',
     role: 'UI/UX Design & Front-end',
-    photo: '/team/weichen.jpg',
+    photo: `${assetBase}team/weichen.jpg`,
   },
 ];
 
@@ -145,7 +147,7 @@ export default function AboutPage() {
           <div style={styles.imageColumn}>
             <div style={styles.imageWrapper}>
               <img
-                src="/images/inspiration.png"
+                src={`${assetBase}images/inspiration.png`}
                 alt="Inspiration"
                 style={styles.heroImage}
               />

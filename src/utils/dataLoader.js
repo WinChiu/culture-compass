@@ -8,7 +8,9 @@ export const useData = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const csvData = await d3.csv('/CC_no_missing_data.csv');
+        const csvData = await d3.csv(
+          `${import.meta.env.BASE_URL}CC_no_missing_data.csv`,
+        );
         setData(csvData);
 
         const wavesMap = {};
