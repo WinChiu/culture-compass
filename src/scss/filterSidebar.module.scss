@@ -5,14 +5,19 @@
   @include flex(column, flex-start, flex-start, 2.5rem);
   position: relative;
   flex: 5;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   background-color: $color-white;
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 100;
   padding: 2rem;
   height: 100%;
   .sidebarSection {
     @include flex(column, flex-start, flex-start, 1.5rem);
     width: 100%;
+    min-width: 0;
     &__titleGroup {
       position: relative;
       width: 100%;
@@ -24,6 +29,7 @@
     &__subTitle {
       @include text-paragraph-regular($color-text-caption);
       text-align: left;
+      max-width: 100%;
     }
     &__resetFilter {
       cursor: pointer;
@@ -44,6 +50,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 0.5rem;
       width: 100%;
+      min-width: 0;
     }
     &__waveLabelParent {
       display: flex;
@@ -69,6 +76,7 @@
     &__button {
       @include flex(row, flex-start, center, 0.5rem);
       width: 100%;
+      min-width: 0;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       border: 1px solid $color-gray;
@@ -137,11 +145,11 @@
         @include text-s-title-bold;
         display: flex;
         align-items: center;
-        width: 100%;
-        gap: 0.5rem;
-        padding: 1rem 0;
-        border: 0;
-        background: transparent;
+      width: 100%;
+      gap: 0.5rem;
+      padding: 1rem 0;
+      border: 0;
+      background: transparent;
         cursor: pointer;
         text-align: left;
       }
@@ -154,7 +162,8 @@
 
       &__result {
         @include text-s-title-regular($color-text-caption);
-        min-width: fit-content;
+        min-width: 0;
+        flex-shrink: 1;
       }
       &__controlGroup {
         display: flex;
@@ -233,11 +242,24 @@
     .sidebarSection {
       gap: 1.125rem;
 
+      &__title {
+        font-size: 1.6rem;
+        line-height: 1.7rem;
+      }
+
+      &__subTitle {
+        font-size: 0.85rem;
+        line-height: 1rem;
+      }
+
       &__button {
         padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        line-height: 1.15rem;
       }
 
       &__buttonGroup {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.4rem;
       }
     }

@@ -1,15 +1,18 @@
 @use './variables' as *;
 
 .detail-page-container {
-  @include flex(column, center, center, 0rem);
+  @include flex(column, flex-start, stretch, 0rem);
   height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   background-color: var(--color-culture-background);
+  overflow-x: clip;
   .country-banner {
     background-color: var(--color-culture-dark);
     padding: 1rem 1.5rem;
     flex-shrink: 0;
-    width: 100vw;
+    width: 100%;
     @include flex(row, flex-start, center, 0.5rem);
     &__back {
       cursor: pointer;
@@ -22,7 +25,7 @@
   }
   .content-container {
     @include flex(row, flex-start, flex-start, 1.5rem);
-    width: 100vw;
+    width: 100%;
     height: 100%;
     flex: 1;
     background-color: var(--color-culture-background);
@@ -242,6 +245,9 @@
 
 @media (max-width: 64rem) {
   .detail-page-container {
+    height: auto;
+    min-height: 100dvh;
+
     .country-banner {
       padding: 0.875rem 1rem;
 
@@ -252,11 +258,17 @@
     }
 
     .content-container {
+      flex-direction: column;
+      align-items: stretch;
       gap: 0;
+      overflow: visible;
 
       .left-column {
+        flex: none;
         padding: 1.5rem 1rem 5rem;
         gap: 1rem;
+        min-height: auto;
+        height: auto;
 
         .barChart-header {
           flex-wrap: wrap;

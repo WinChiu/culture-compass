@@ -1,11 +1,15 @@
 #root {
   margin: 0px;
   text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 html, body{
 width: 100%;
 margin: 0px;
+overflow-x: hidden;
 }
 
 body {

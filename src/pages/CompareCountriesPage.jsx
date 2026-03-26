@@ -34,10 +34,11 @@ const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
-    height: "100vh",
-    width: "100vw",
+    minHeight: "100vh",
+    width: "100%",
     backgroundColor: "#F5F8FA",
     fontFamily: "var(--font-family, Inter, sans-serif)",
+    overflowX: "hidden",
   },
   mainContent: {
     padding: "2rem",

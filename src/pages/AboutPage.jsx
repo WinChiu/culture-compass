@@ -56,6 +56,14 @@ const valueDimensions = [
   { name: 'Work', icon: WorkIcon },
 ];
 
+const filterItems = [
+  { name: 'Age', icon: AgeIcon },
+  { name: 'Gender', icon: GenderIcon },
+  { name: 'Marital Status', icon: MaritalIcon },
+  { name: 'Education Level', icon: EducationIcon },
+  { name: 'Employment Status', icon: EmploymentIcon },
+];
+
 export default function AboutPage() {
   return (
     <div style={styles.page}>
@@ -107,39 +115,16 @@ export default function AboutPage() {
               </p>
 
               <div style={styles.filterGrid}>
-                <div
-                  style={{ ...styles.filterPill, gridColumn: 'span 2' }}
-                  className={textStyle.pillText}
-                >
-                  <img src={AgeIcon} style={styles.iconDark} alt="" /> Age
-                </div>
-                <div
-                  style={{ ...styles.filterPill, gridColumn: 'span 2' }}
-                  className={textStyle.pillText}
-                >
-                  <img src={GenderIcon} style={styles.iconDark} alt="" /> Gender
-                </div>
-                <div
-                  style={{ ...styles.filterPill, gridColumn: 'span 2' }}
-                  className={textStyle.pillText}
-                >
-                  <img src={MaritalIcon} style={styles.iconDark} alt="" />{' '}
-                  Marital Status
-                </div>
-                <div
-                  style={{ ...styles.filterPill, gridColumn: 'span 3' }}
-                  className={textStyle.pillText}
-                >
-                  <img src={EducationIcon} style={styles.iconDark} alt="" />{' '}
-                  Education Level
-                </div>
-                <div
-                  style={{ ...styles.filterPill, gridColumn: 'span 3' }}
-                  className={textStyle.pillText}
-                >
-                  <img src={EmploymentIcon} style={styles.iconDark} alt="" />{' '}
-                  Employment Status
-                </div>
+                {filterItems.map((item) => (
+                  <div
+                    key={item.name}
+                    style={styles.filterPill}
+                    className={textStyle.pillText}
+                  >
+                    <img src={item.icon} style={styles.iconDark} alt="" />
+                    {item.name}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -237,10 +222,10 @@ export default function AboutPage() {
                 height: '100%',
                 border: 'none',
               }}
-              frameborder="0"
-              referrerpolicy="strict-origin-when-cross-origin"
+              frameBorder="0"
+              referrerPolicy="strict-origin-when-cross-origin"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
         </section>
@@ -321,16 +306,23 @@ const styles = {
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
+    width: '100%',
     padding: '2.5rem 1.5rem 4rem',
+    overflowX: 'hidden',
   },
   heroSection: {
     display: 'grid',
-    gridTemplateColumns: '1.2fr 0.8fr',
+    gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)',
     gap: '1.5rem',
     alignItems: 'stretch',
   },
 
-  leftColumn: { display: 'flex', flexDirection: 'column', gap: '1.5rem' },
+  leftColumn: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.5rem',
+    minWidth: 0,
+  },
 
   card: {
     background: '#E8F1F8',
@@ -343,13 +335,13 @@ const styles = {
   },
   valueGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
     gap: '0.875rem',
     margin: '0.5rem 0 0.75rem',
   },
   filterGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(6, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
     gap: '0.875rem',
     margin: '0.5rem 0 0',
   },
@@ -375,6 +367,7 @@ const styles = {
     color: '#FFF',
     padding: '0.875rem 1.125rem',
     borderRadius: '0.5rem',
+    minWidth: 0,
   },
   filterPill: {
     display: 'flex',
@@ -385,6 +378,7 @@ const styles = {
     color: '#21212B',
     padding: '0.875rem 1.125rem',
     borderRadius: '0.5rem',
+    minWidth: 0,
   },
   teamSection: { marginTop: '4rem' },
   teamGrid: {
@@ -411,6 +405,7 @@ const styles = {
     flexDirection: 'column',
     gap: '1.5rem',
     height: '100%',
+    minWidth: 0,
   },
   imageWrapper: {
     flex: '1 1 auto',
@@ -432,7 +427,7 @@ const styles = {
   },
   abstractionGrid: {
     display: 'grid',
-    gridTemplateColumns: '1.2fr 0.8fr',
+    gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)',
     gap: '1.5rem',
     marginTop: '1.5rem',
     alignItems: 'stretch',
@@ -449,7 +444,7 @@ const styles = {
 
   splitContent: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
     gap: '2rem',
     textAlign: 'left',
   },
@@ -495,8 +490,8 @@ const styles = {
     width: '100%',
   },
   resourceLink: {
-    flex: '1 1 calc(25% - 12px)',
-    minWidth: '200px',
+    flex: '1 1 220px',
+    minWidth: 0,
     padding: '1rem 1.25rem',
     borderRadius: '0.5rem',
     textDecoration: 'none',

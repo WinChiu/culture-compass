@@ -50,7 +50,6 @@ export default function ResponsiveFilterSidebar({
           />
           <div className={styles.mobilePanel}>
             <div className={styles.mobileHeader}>
-              <h2 className={styles.mobileTitle}>Filters</h2>
               <button
                 type="button"
                 className={styles.mobileClose}
