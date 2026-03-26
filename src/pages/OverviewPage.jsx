@@ -3,6 +3,7 @@ import Header from "../components/layout/Header";
 import MapView from "../components/countryOverview/OverviewMapView";
 import ParallelCoordinatesView from "../components/countryOverview/ParallelCoordinatesView";
 import FilterSidebar from "../components/FilterSidebar";
+import ResponsiveFilterSidebar from "../components/ResponsiveFilterSidebar";
 import sharedStyle from "../scss/detailedCountryPage.module.scss";
 import overlayStyle from "../scss/mapOverlay.module.scss";
 
@@ -29,53 +30,25 @@ const OverView = ({
       <Header />
       <main style={{ display: "flex", flex: 1, overflow: "hidden", width: "100%" }}>
         <div style={{ flex: 8, position: "relative", zIndex: 1 }}>
-          <div style={{
-              position: "absolute",
-              top: "45px",
-              right: "30px",
-              display: "flex",
-              backgroundColor: "#fff",
-              borderRadius: "10px",
-              zIndex: 100,
-              overflow: "visible", 
-          }}
-          className={overlayStyle.shadowCard}>
+          <div
+            className={`${overlayStyle.shadowCard} ${overlayStyle.viewToggle}`}
+          >
             <button
               onClick={() => setViewMode("map")}
-              style={{
-                padding: "8px 24px",
-                border: "none",
-                backgroundColor: viewMode === "map" ? "var(--color-culture-dark)" : "transparent",
-                color: viewMode === "map" ? "#fff" : "#2c3e50",
-                cursor: "pointer",
-                fontWeight: 600,
-                fontSize: "14px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                borderTopLeftRadius: "10px",
-                borderBottomLeftRadius: "10px",
-              }}
+              className={`${overlayStyle.viewToggleButton} ${
+                viewMode === "map" ? overlayStyle.viewToggleButtonActive : ""
+              }`}
             >
               Map View
             </button>
             
             <button
               onClick={() => setViewMode("parallel")}
-              style={{
-                padding: "8px 24px",
-                border: "none",
-                backgroundColor: viewMode === "parallel" ? "var(--color-culture-dark)" : "transparent",
-                color: viewMode === "parallel" ? "#fff" : "#2c3e50",
-                cursor: "pointer",
-                fontWeight: 600,
-                fontSize: "14px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                borderTopRightRadius: "10px",
-                borderBottomRightRadius: "10px",
-              }}
+              className={`${overlayStyle.viewToggleButton} ${
+                viewMode === "parallel"
+                  ? overlayStyle.viewToggleButtonActive
+                  : ""
+              }`}
             >
               Parallel View
             </button>
@@ -100,7 +73,7 @@ const OverView = ({
           </div>
         </div> 
 
-        <div style={{ flex: 5, position: "relative", zIndex: 2 }}>
+        <ResponsiveFilterSidebar>
           <FilterSidebar
             selectedCountry={selectedCountry}
             viewMode={viewMode}
@@ -119,7 +92,7 @@ const OverView = ({
             filteredDataWithoutCountry={filteredDataWithoutCountry}
             allowWaveComparison={false}
           />
-        </div>
+        </ResponsiveFilterSidebar>
 
       </main>
     </div>

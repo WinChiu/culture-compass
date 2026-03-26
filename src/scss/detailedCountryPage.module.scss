@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use './variables' as *;
 
 .detail-page-container {
   @include flex(column, center, center, 0rem);
@@ -39,8 +39,14 @@
       .barChart-header {
         @include flex(row, flex-start, flex-end, 0);
         width: 100%;
+        .barChart-headingGroup {
+          @include flex(row, flex-start, center, 1rem);
+          flex: 1;
+          min-width: 0;
+        }
         .barChart-icon {
           margin-right: 1rem;
+          flex-shrink: 0;
         }
         .barChart-title__container {
           @include flex(column, center, flex-start, 0.5rem);
@@ -127,7 +133,7 @@
       }
     }
     .right-column {
-      @include flex(column, flex-start, flex-start, 1.5rem);
+      @include flex(column, flex-start, stretch, 1.5rem);
       flex: 5;
       height: 100%;
       min-height: 0;
@@ -232,4 +238,234 @@
 
 :global(.MuiAccordion-root) {
   border-bottom: 1px solid #f0f0f0;
+}
+
+@media (max-width: 64rem) {
+  .detail-page-container {
+    .country-banner {
+      padding: 0.875rem 1rem;
+
+      &__title {
+        font-size: 1.75rem;
+        line-height: 2rem;
+      }
+    }
+
+    .content-container {
+      gap: 0;
+
+      .left-column {
+        padding: 1.5rem 1rem 5rem;
+        gap: 1rem;
+
+        .barChart-header {
+          flex-wrap: wrap;
+          align-items: flex-start;
+          gap: 0.75rem;
+
+          .barChart-headingGroup {
+            width: 100%;
+            gap: 0.75rem;
+            align-items: flex-start;
+          }
+
+          .barChart-icon {
+            width: 44px;
+            height: 44px;
+            margin-right: 0;
+            margin-top: 0.1rem;
+          }
+
+          .barChart-title__container {
+            gap: 0.35rem;
+
+            .barChart-title {
+              font-size: 2rem;
+              line-height: 2rem;
+            }
+
+            .barChart-subtitle {
+              font-size: 0.95rem;
+              line-height: 1.15rem;
+            }
+          }
+
+          .barChart-legend__container {
+            width: 100%;
+            gap: 0.35rem;
+
+            .barChart-legend__item {
+              .barChart-legend-label {
+                font-size: 0.95rem;
+                line-height: 1.1rem;
+                white-space: normal;
+              }
+            }
+          }
+        }
+
+        .plot__container {
+          min-height: 26rem;
+        }
+
+        .cultureCard__container {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.75rem;
+
+          .cultureCard {
+            padding: 1rem 0.875rem;
+
+            .cultureCard-title__container {
+              .cultureCard-title-valueName {
+                font-size: 1.25rem;
+                line-height: 1.25rem;
+              }
+            }
+
+            .cultureCard-number {
+              font-size: 1.5rem;
+              line-height: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .xAxis-label {
+    font-size: 0.75rem;
+    line-height: 0.9rem;
+  }
+
+  .yAxis-label,
+  .barLabel {
+    font-size: 0.8rem;
+    line-height: 0.95rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .detail-page-container {
+    .country-banner {
+      padding: 0 0.75rem;
+      gap: 0.75rem;
+      min-height: 3.25rem;
+
+      &__title {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    .content-container {
+      .left-column {
+        padding: 1rem 0.875rem 5rem;
+        gap: 0.875rem;
+
+        .barChart-header {
+          gap: 0.625rem;
+
+          .barChart-headingGroup {
+            gap: 0.625rem;
+            flex-wrap: nowrap;
+          }
+
+          .barChart-icon {
+            width: 36px;
+            height: 36px;
+          }
+
+          .barChart-title__container {
+            .barChart-title {
+              font-size: 2rem;
+              line-height: 1.9rem;
+            }
+
+            .barChart-subtitle {
+              font-size: 0.9rem;
+              line-height: 1.05rem;
+            }
+          }
+
+          .barChart-legend__container {
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+
+            .barChart-legend-block {
+              width: 10px;
+              height: 10px;
+            }
+
+            .barChart-legend__item {
+              gap: 0.35rem;
+              justify-content: center;
+
+              .barChart-legend-label {
+                font-size: 0.72rem;
+                line-height: 0.9rem;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+
+        .plot__container {
+          min-height: 21rem;
+        }
+
+        .cultureCard__container {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.625rem;
+          overflow: visible;
+          padding-bottom: 0;
+
+          .cultureCard {
+            min-height: 5rem;
+            padding: 0.875rem 0.75rem;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .cultureCard-title__container {
+              gap: 0.2rem;
+              width: auto;
+              flex: 1;
+
+              .cultureCard-title-label {
+                font-size: 0.68rem;
+                line-height: 0.9rem;
+              }
+
+              .cultureCard-title-valueName {
+                font-size: 1.2rem;
+                line-height: 1.2rem;
+              }
+            }
+
+            .cultureCard-number {
+              width: auto;
+              text-align: right;
+              font-size: 1.2rem;
+              line-height: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .xAxis-label {
+    font-size: 0.72rem;
+    line-height: 0.9rem;
+  }
+
+  .yAxis-label,
+  .barLabel {
+    font-size: 0.68rem;
+    line-height: 0.8rem;
+  }
 }

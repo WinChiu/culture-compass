@@ -213,3 +213,33 @@
     }
   }
 }
+
+@media (max-width: 64rem) {
+  .sidebar {
+    gap: 2rem;
+    padding: 1rem;
+
+    .sidebarSection {
+      gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .sidebar {
+    gap: 1.75rem;
+    padding: 0.875rem 1rem 1rem;
+
+    .sidebarSection {
+      gap: 1.125rem;
+
+      &__button {
+        padding: 0.5rem 0.75rem;
+      }
+
+      &__buttonGroup {
+        gap: 0.4rem;
+      }
+    }
+  }
+}

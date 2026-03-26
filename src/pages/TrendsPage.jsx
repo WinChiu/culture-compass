@@ -1,6 +1,7 @@
 import Header from '../components/layout/Header';
 import MapView from '../components/countryOverview/TrendMapView';
 import FilterSidebar from '../components/FilterSidebar';
+import ResponsiveFilterSidebar from '../components/ResponsiveFilterSidebar';
 
 import sharedStyle from '../scss/detailedCountryPage.module.scss';
 
@@ -47,7 +48,7 @@ const Trends = ({
           </div>
         </div>
 
-        <div style={{ flex: 5, position: 'relative' }}>
+        <ResponsiveFilterSidebar>
           <FilterSidebar
             selectedCountry={null}
             DIMENSIONS={DIMENSIONS}
@@ -65,7 +66,7 @@ const Trends = ({
             filteredDataWithoutCountry={filteredDataWithoutCountry}
             allowWaveComparison={true}
           />
-        </div>
+        </ResponsiveFilterSidebar>
       </main>
     </div>
   );

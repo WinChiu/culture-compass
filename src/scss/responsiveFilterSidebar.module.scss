@@ -1,0 +1,110 @@
+@use './variables' as *;
+
+.desktopContainer {
+  flex: 5;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.mobileFab {
+  display: none;
+}
+
+.mobileOverlay {
+  display: none;
+}
+
+@media (max-width: 64rem) {
+  .desktopContainer {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 1100;
+  }
+
+  .desktopContainer > :global(*) {
+    display: none;
+  }
+
+  .mobileFab {
+    @include shadowL1;
+    @include text-s-title-bold($color-text-white);
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.25rem;
+    padding: 0.875rem 1.25rem;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--color-culture-dark);
+    cursor: pointer;
+    z-index: 1200;
+  }
+
+  .mobileOverlay {
+    position: fixed;
+    inset: 0;
+    display: block;
+    z-index: 1300;
+  }
+
+  .mobileBackdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(24, 24, 24, 0.32);
+    cursor: pointer;
+  }
+
+  .mobilePanel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-culture-background);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileHeader {
+    @include shadowL1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1rem 0.75rem;
+    background-color: $color-white;
+    z-index: 1;
+  }
+
+  .mobileTitle {
+    @include text-h2;
+    margin: 0;
+  }
+
+  .mobileClose {
+    @include text-paragraph-bold;
+    padding: 0.625rem 0.9rem;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--color-culture-dark);
+    color: $color-text-white;
+    cursor: pointer;
+  }
+
+  .mobileContent {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .mobileContent > :global(*) {
+    height: 100%;
+  }
+}

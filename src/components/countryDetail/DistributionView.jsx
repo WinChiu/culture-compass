@@ -68,33 +68,35 @@ const DistributionView = ({
   return (
     <div className={styles['left-column']}>
       <div className={styles['barChart-header']}>
-        <img
-          src={
-            activeDimension === 'impFriends'
-              ? friendsColoredIcon
-              : activeDimension === 'impFamily'
-                ? familyColoredIcon
-                : activeDimension === 'impReligion'
-                  ? religionColoredIcon
-                  : activeDimension === 'impWork'
-                    ? workColoredIcon
-                    : activeDimension === 'impLeisure'
-                      ? leisureColoredIcon
-                      : politicsColoredIcon
-          }
-          alt=""
-          className={styles['barChart-icon']}
-        />
-        <div className={styles['barChart-title__container']}>
-          <h1 className={styles['barChart-title']}>
-            Importance of{' '}
-            <span className={styles['barChart-title__highlight']}>
-              {DIMENSIONS.find((d) => d.id === activeDimension)?.label}
-            </span>
-          </h1>
-          <p className={styles['barChart-subtitle']}>
-            % of respondents within each wave selecting each option
-          </p>
+        <div className={styles['barChart-headingGroup']}>
+          <img
+            src={
+              activeDimension === 'impFriends'
+                ? friendsColoredIcon
+                : activeDimension === 'impFamily'
+                  ? familyColoredIcon
+                  : activeDimension === 'impReligion'
+                    ? religionColoredIcon
+                    : activeDimension === 'impWork'
+                      ? workColoredIcon
+                      : activeDimension === 'impLeisure'
+                        ? leisureColoredIcon
+                        : politicsColoredIcon
+            }
+            alt=""
+            className={styles['barChart-icon']}
+          />
+          <div className={styles['barChart-title__container']}>
+            <h1 className={styles['barChart-title']}>
+              Importance of{' '}
+              <span className={styles['barChart-title__highlight']}>
+                {DIMENSIONS.find((d) => d.id === activeDimension)?.label}
+              </span>
+            </h1>
+            <p className={styles['barChart-subtitle']}>
+              % of respondents within each wave selecting each option
+            </p>
+          </div>
         </div>
         <div className={styles['barChart-legend__container']}>
           <div className={styles['barChart-legend__item']}>

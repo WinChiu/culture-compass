@@ -264,34 +264,13 @@ const MapView = ({ data, activeDimension, activeWave, onCountryClick }) => {
         }}
       />
 
-      <div
-        style={{
-          position: 'absolute',
-          top: '36px',
-          left: '21.6px',
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          gap: '14px',
-          maxWidth: '520px',
-          pointerEvents: 'none',
-        }}
-      >
+      <div className={overlayStyle.topOverlay}>
         <img
           src={activeDimensionMeta.icon}
           alt=""
-          style={{
-            flexShrink: 0,
-          }}
+          className={overlayStyle.topOverlayIcon}
         />
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '6px',
-          }}
-        >
+        <div className={overlayStyle.topOverlayText}>
           <h1
             className={typography.overlayTitle}
             style={{
@@ -332,26 +311,8 @@ const MapView = ({ data, activeDimension, activeWave, onCountryClick }) => {
         </div>
       </div>
 
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '30px',
-          left: '20px',
-          zIndex: 1000,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          pointerEvents: 'none',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            pointerEvents: 'auto',
-          }}
-        >
+      <div className={overlayStyle.bottomOverlay}>
+        <div className={overlayStyle.zoomGroup}>
           <button
             className={overlayStyle.iconButton}
             style={btnStyle}
@@ -368,22 +329,9 @@ const MapView = ({ data, activeDimension, activeWave, onCountryClick }) => {
           </button>
         </div>
 
-        <div
-          className={overlayStyle.shadowCard}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px',
-            pointerEvents: 'auto',
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-            padding: '10px 14px',
-            borderRadius: '12px',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span
-              className={typography.legendTitle}
-            >
+        <div className={`${overlayStyle.shadowCard} ${overlayStyle.legendCard}`}>
+          <div className={overlayStyle.legendHeader}>
+            <span className={typography.legendTitle}>
               Mean importance value
             </span>
             <HelpIcon
@@ -393,38 +341,15 @@ const MapView = ({ data, activeDimension, activeWave, onCountryClick }) => {
             />
           </div>
 
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              minWidth: '220px',
-              gap: '12px',
-              marginTop: '4px',
-              alignItems: 'flex-end',
-            }}
-          >
-            <div
-              style={{
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px',
-              }}
-            >
+          <div className={overlayStyle.legendScaleRow}>
+            <div className={overlayStyle.legendGradientGroup}>
               <div
+                className={overlayStyle.legendGradientBar}
                 style={{
-                  height: '10px',
-                  width: '100%',
                   background: `linear-gradient(to right, ${activeTheme.min}, ${activeTheme.max})`,
-                  borderRadius: '3px',
                 }}
               />
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                }}
-              >
+              <div className={overlayStyle.legendTicks}>
                 <span className={typography.legendTick}>1</span>
                 <span className={typography.legendTick}>2</span>
                 <span className={typography.legendTick}>3</span>
@@ -432,28 +357,10 @@ const MapView = ({ data, activeDimension, activeWave, onCountryClick }) => {
               </div>
             </div>
 
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '6px',
-                minWidth: '45px',
-              }}
-            >
-              <div
-                style={{
-                  height: '10px',
-                  width: '100%',
-                  backgroundColor: '#f0f0f0',
-                  backgroundImage:
-                    'repeating-linear-gradient(-45deg, #cccccc 0, #cccccc 2px, transparent 2px, transparent 8px)',
-                  borderRadius: '3px',
-                }}
-              />
+            <div className={overlayStyle.legendNoData}>
+              <div className={overlayStyle.legendNoDataBar} />
               <span
-                className={typography.legendTick}
-                style={{ whiteSpace: 'nowrap' }}
+                className={`${typography.legendTick} ${overlayStyle.legendNoDataLabel}`}
               >
                 No Data
               </span>

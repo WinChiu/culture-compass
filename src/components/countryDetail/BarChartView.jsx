@@ -21,7 +21,13 @@ function BarChartView({ Wave1, Wave2 }) {
         .getPropertyValue('--color-culture-analogous')
         .trim();
 
-      const margin = { top: 8, right: 0, bottom: 36, left: 44 };
+      const isCompact = ref.current.clientWidth < 520;
+      const margin = {
+        top: 8,
+        right: 0,
+        bottom: isCompact ? 48 : 36,
+        left: isCompact ? 8 : 44,
+      };
       const width = ref.current.clientWidth - margin.left - margin.right;
       const height = ref.current.clientHeight - margin.top - margin.bottom;
       const barBottomGap = 2;
@@ -92,27 +98,36 @@ function BarChartView({ Wave1, Wave2 }) {
         .attr('stroke-dasharray', '4,4')
         .attr('stroke-width', 1.5);
 
-      svg
-        .append('g')
-        .selectAll('text.y-axis-label')
-        .data(gridTicks)
-        .enter()
-        .append('text')
-        .attr('class', 'y-axis-label')
-        .attr('x', -10)
-        .attr('y', (d) => y(d))
-        .attr('dy', '0.35em')
-        .attr('text-anchor', 'end')
-        .attr('class', style['yAxis-label'])
-        .attr('fill', colors.colorTextCaption)
-        .text((d) => `${d}%`);
+      if (!isCompact) {
+        svg
+          .append('g')
+          .selectAll('text.y-axis-label')
+          .data(gridTicks)
+          .enter()
+          .append('text')
+          .attr('class', 'y-axis-label')
+          .attr('x', -10)
+          .attr('y', (d) => y(d))
+          .attr('dy', '0.35em')
+          .attr('text-anchor', 'end')
+          .attr('class', style['yAxis-label'])
+          .attr('fill', colors.colorTextCaption)
+          .text((d) => `${d}%`);
+      }
 
-      const labels = [
-        'Not at all important (1)',
-        'Not very important (2)',
-        'Rather important (3)',
-        'Very Important (4)',
-      ];
+      const labels = isCompact
+        ? [
+            ['Not at all', 'important (1)'],
+            ['Not very', 'important (2)'],
+            ['Rather', 'important (3)'],
+            ['Very', 'important (4)'],
+          ]
+        : [
+            ['Not at all important (1)'],
+            ['Not very important (2)'],
+            ['Rather important (3)'],
+            ['Very Important (4)'],
+          ];
 
       const data = [1, 2, 3, 4].map((key) => ({
         key: key.toString(),
@@ -132,10 +147,19 @@ function BarChartView({ Wave1, Wave2 }) {
       group
         .append('text')
         .attr('x', x0.bandwidth() / 2)
-        .attr('y', height + 32)
+        .attr('y', height + (isCompact ? 24 : 32))
         .attr('text-anchor', 'middle')
         .attr('class', style['xAxis-label'])
-        .text((d) => d.label);
+        .each(function (d) {
+          const text = d3.select(this);
+          d.label.forEach((line, index) => {
+            text
+              .append('tspan')
+              .attr('x', x0.bandwidth() / 2)
+              .attr('dy', index === 0 ? 0 : '1.1em')
+              .text(line);
+          });
+        });
 
       group.each(function (d) {
         const g = d3.select(this);
@@ -183,9 +207,12 @@ function BarChartView({ Wave1, Wave2 }) {
         }
 
         if (maxVal > 0) {
+          const compactLabelOffsetA = isCompact ? -14 : -8;
+          const compactLabelOffsetB = isCompact ? -24 : -8;
+
           g.append('text')
             .attr('x', x1('A') + x1.bandwidth() / 2)
-            .attr('y', y(maxVal) - 8)
+            .attr('y', y(maxVal) + compactLabelOffsetA)
             .attr('text-anchor', 'middle')
             .attr('class', style['barLabel'])
             .attr('fill', colorCulturePrimary)
@@ -193,7 +220,7 @@ function BarChartView({ Wave1, Wave2 }) {
 
           g.append('text')
             .attr('x', x1('B') + x1.bandwidth() / 2)
-            .attr('y', y(maxVal) - 8)
+            .attr('y', y(maxVal) + compactLabelOffsetB)
             .attr('text-anchor', 'middle')
             .attr('class', style['barLabel'])
             .attr('fill', colorCultureAnalogous)
