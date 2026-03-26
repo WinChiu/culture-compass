@@ -260,7 +260,7 @@ const MapView = ({ data, activeDimension, activeWave, onCountryClick }) => {
           height: '100%',
           width: '100%',
           zIndex: 1,
-          backgroundColor: '#F5F8FA',
+          backgroundColor: 'var(--color-culture-background)',
         }}
       />
 

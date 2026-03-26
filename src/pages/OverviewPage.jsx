@@ -62,7 +62,14 @@ const OverView = ({
                 activeWave={activeWave}
               />
             ) : (
-              <div style={{ width: "100%", height: "100%", backgroundColor: "#fff", paddingTop: "40px" }}>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "var(--color-culture-background)",
+                  paddingTop: "40px",
+                }}
+              >
                 <ParallelCoordinatesView
                   filteredData={filteredDataWithoutCountry}
                   activeWave={activeWave}
